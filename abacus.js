@@ -28,12 +28,9 @@ function AbacusCtrl(type) {
 	
 	this.beadLines = 8;
 
-	// this.beadPerLine = (this.type == 0) ? 5 : 7;
-	// this.beadSep = (this.type == 0) ? 3 : 4;
-	
-	this.beadPerLine = [5, 7, 7][this.type] || 0; // Total
-	this.beadSep = [3, 4, 5][this.type] || 0; // Bottom (this + 1)
-
+	// [!] Change index 2 to "7" of beadPerLine if you want a regular soroban (Base12)
+	this.beadPerLine = [5, 7, 6][this.type] || 0; // Total
+	this.beadSep = [3, 4, 4][this.type] || 0; // Bottom (this + 1)
 
 	this.beadHeight = 40;
 	this.beadSpacing = 80;
@@ -44,15 +41,18 @@ function AbacusCtrl(type) {
 		this.nodes.length = 0;
 		var id = 0;
 		for(var i=0; i < this.beadLines; i++) {
+
 			for(var j=0; j < this.beadPerLine; j++) {
 				var bead = new Bead();
 				bead.position[0] = 580 - i * this.beadSpacing;
 				bead.position[1] = 60 + this.beadPerLine * this.beadHeight - j * this.beadHeight;
 				bead.value = 1;
-				if(j > this.beadSep) { // Place above
+
+				if(j > this.beadSep) { // Place Top
 					bead.position[1] = 60 + this.beadPerLine * this.beadHeight - (j * this.beadHeight + 2 * this.beadHeight);
-					bead.value = 5;
+					bead.value = (this.type === 2) ? 6 : 5;
 				}
+
 				bead.uniqueID = id;
 				this.nodes.push(bead);
 				id++;
@@ -306,7 +306,7 @@ function Abacus(parentDivId, type) {
 		}
 
 
-		// Draw Base 10 value
+		// Draw Base10 value
 		// Magic numbers goes brr
 		// 6 = Column
 		// -70 = I have no fucking idea (text align = center)
