@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Base12 Soroban</title>
+		<script src='./abacus.js'></script>
+		<script ltype="text/javascript">
+			function run() {
+				var abacus2 = new Abacus("myAbacus3", 2);
+				abacus2.init();
+			}
+		</script>
+
+		<style type="text/css">
+			* {
+				font-family: Arial;
+				color: black;
+			}
+
+			#about {
+				color: darkgray;
+			}
+
+			#link {
+				margin-top: 50px;
+			}
+
+			a {
+				font-size: 20px;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body onload="run();">
+		<h1>Juuni-shinsu no Soroban Simulator <br>(十二進数のそろばん)</h1>
+		<h3>Made for Erlok</h3>
+		<p id="about">The numbers below the soroban only show the quantity in each column, ignore them</p>
+
+		<div id="myAbacus3"> </div>
+
+		<p id="link"><a href="https://www.mathematik.uni-marburg.de/~thormae/lectures/ti1/code/abacus/sanpan.html">Original site</a></p> 
+	</body>
+</html>
