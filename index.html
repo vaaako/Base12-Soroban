@@ -1,12 +1,15 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Base12 Soroban</title>
+  		<link rel="icon" type="image/x-icon" href="favicon.ico">
+
 		<script src='./abacus.js'></script>
 		<script ltype="text/javascript">
 			function run() {
-				var abacus2 = new Abacus("myAbacus3", 2);
+				var abacus2 = new Abacus("myAbacus3", 2); // 0 - Japanese / 1 - Chinese / 2 - vako
 				abacus2.init();
 			}
 		</script>
@@ -33,8 +36,8 @@
 	</head>
 	<body onload="run();">
 		<h1>Juuni-shinsu no Soroban Simulator <br>(十二進数のそろばん)</h1>
-		<h3>Made for Erlok</h3>
-		<p id="about">The numbers below the soroban only show the quantity in each column, ignore them</p>
+		<h3>Made for Erlok <3</h3>
+		<p id="about">The number below the soroban shows the value in Base 12</p>
 
 		<div id="myAbacus3"> </div>
 

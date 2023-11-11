@@ -294,9 +294,9 @@ function Abacus(parentDivId, type) {
 			// Convert value
 			var valueSting;
 			if(abacusCtrl.type === 1) {
-				valueSting = valueSum.toString(16);
+				valueSting = valueSum.toString(16).toUpperCase();
 			} else if(abacusCtrl.type === 2) {
-				valueSting = valueSum.toString(12);
+				valueSting = valueSum.toString(12).toUpperCase();
 			} else {
 				valueSting = valueSum.toString(10);
 			}
@@ -315,11 +315,11 @@ function Abacus(parentDivId, type) {
 
 		console.log(valueTotal);
 		ctx.textAlign = 'left';
-		ctx.fillText("Base¹²: " + valueTotal.toString(12).toUpperCase() + " // Base¹⁰: " + valueTotal, textX, textY);
+		ctx.fillText("Base¹⁰: " + valueTotal, textX, textY);
 
+		// ctx.fillText("Base¹²: " + valueTotal.toString(12).toUpperCase() + " // Base¹⁰: " + valueTotal, textX, textY);
 		// ctx.fillText("Base¹²: " + valueTotal.toString(12).toUpperCase(), textX, textY);
 		// var textY = 130 + (abacusCtrl.beadPerLine + 2) * abacusCtrl.beadHeight;
-		// ctx.fillText("Base¹⁰: " + valueTotal, textX, textY);
 	};
 	
 	function mouseOverElement(pos) {
